@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &amp;quot;Your Name&amp;quot;$ git config --global user.emai">
+<meta name="description" content="Git基础操作：本地+远程操作Step1: 初始化用户名和邮箱123安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &amp;quot;Your Name&amp;quot;$ git config --global user.email &amp;quot;email@example.com&amp;quot;">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git-learning">
 <meta property="og:url" content="http://sssmarter.cn/2017/06/12/Git-learning/index.html">
 <meta property="og:site_name" content="Leave Me Alone">
-<meta property="og:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &amp;quot;Your Name&amp;quot;$ git config --global user.emai">
-<meta property="og:updated_time" content="2017-06-12T13:55:53.186Z">
+<meta property="og:description" content="Git基础操作：本地+远程操作Step1: 初始化用户名和邮箱123安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &amp;quot;Your Name&amp;quot;$ git config --global user.email &amp;quot;email@example.com&amp;quot;">
+<meta property="og:updated_time" content="2017-06-12T14:42:51.785Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git-learning">
-<meta name="twitter:description" content="1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &amp;quot;Your Name&amp;quot;$ git config --global user.emai">
+<meta name="twitter:description" content="Git基础操作：本地+远程操作Step1: 初始化用户名和邮箱123安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &amp;quot;Your Name&amp;quot;$ git config --global user.email &amp;quot;email@example.com&amp;quot;">
 
 
 
@@ -430,7 +430,16 @@
       
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">安装完成之后，初始化用户名和用户邮箱：</div><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div><div class="line"></div><div class="line">初始化一个Git仓库，使用git init命令。</div><div class="line">添加文件到Git仓库，分两步：</div><div class="line">- 第一步，使用命令git add &lt;file&gt;，注意，可反复多次使用，添加多个文件；</div><div class="line">- 第二步，使用命令git commit，完成。</div><div class="line"></div><div class="line">修改文件，用git diff filename 来查看被修改的文件的情况</div><div class="line">然后用同样的代码，先git add file,再git commit -m &quot;comment&quot; 提交分支</div><div class="line"></div><div class="line">git log 查看版本更迭的历史记录</div><div class="line">简化输出信息：git log --pretty=oneline</div><div class="line"></div><div class="line">HEAD表示当前版本，HEAD^表示上一版本，HEAD^^表示上上一个版本，HEAD~100表示上100个版本</div><div class="line">回退使用git reset 命令</div><div class="line">git reset --hard +HEAD或者commit id</div><div class="line"></div><div class="line">可以使用git diff HEAD -- filename 来查看工作区和版本库里面最新版本的区别</div><div class="line"></div><div class="line">git checkout --file 丢弃工作区的修改</div><div class="line">git reset HEAD file 撤销暂存区的修改</div><div class="line"></div><div class="line">在工作区中删除了文件，</div><div class="line">1.同步到版本库中，用git rm file，然后再git commit -m &quot;&quot;来同步到版本库；</div><div class="line">2.需要恢复的话，则用git checkout -- file 来将版本库中的同步到工作区；</div><div class="line"></div><div class="line">远程仓库：</div><div class="line">查看用户主目录下是否有.ssh目录，有的话，直接复制id_ras.pub的内容去github中添加ssh key</div><div class="line">如果没有，则用 ssh-keygen -t rsa -C &quot;youremail@example.com&quot; 创建ssh key</div><div class="line">git添加远程管仓库：</div><div class="line">1.现在github上添加一个仓库，然后复制ssh地址；</div><div class="line">2.把本地库和github上的库关联：git remote add origin(远程仓库的名字) (ssh地址)</div><div class="line"></div><div class="line">下一步是把本地库所有的内容推送到远程库上：</div><div class="line">git push -u origin master</div><div class="line">把本地库的内容推送到远程，用git push命令，实际上是把当前分支mast推送到远程；</div><div class="line">由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</div><div class="line">之后只需要使用git push origin master即可将本地master分支的最新修改版本推送到github</div><div class="line"></div><div class="line">创建并切换新的分支：git checkout -b dev</div><div class="line">上述相当于：</div><div class="line">git branch dev（创建分支）     +     git checkout dev（切换分支）</div><div class="line">查看当前分支：git branch</div><div class="line">切换回原分支：git checkout master</div><div class="line">合并指定分支到当前分支：git merge dev</div><div class="line">删除分支：git branch -d dev</div><div class="line"></div><div class="line">解决冲突：两条及以上分支同时做了修改</div><div class="line">首先修改文件的内容用于解决冲突，然后再重新提交原数据文件</div><div class="line">用git log --graph 可查看分支合并图</div></pre></td></tr></table></figure>
+        <h2 id="Git基础操作：本地-远程操作"><a href="#Git基础操作：本地-远程操作" class="headerlink" title="Git基础操作：本地+远程操作"></a>Git基础操作：本地+远程操作</h2><h3 id="Step1-初始化用户名和邮箱"><a href="#Step1-初始化用户名和邮箱" class="headerlink" title="Step1: 初始化用户名和邮箱"></a>Step1: 初始化用户名和邮箱</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">安装完成之后，初始化用户名和用户邮箱：</div><div class="line">$ git config --global user.name &quot;Your Name&quot;</div><div class="line">$ git config --global user.email &quot;email@example.com&quot;</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="Step2-初始化git仓库"><a href="#Step2-初始化git仓库" class="headerlink" title="Step2: 初始化git仓库"></a>Step2: 初始化git仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">初始化一个Git仓库，使用git init命令。</div><div class="line">git init</div></pre></td></tr></table></figure>
+<h3 id="Step3-git部分操作"><a href="#Step3-git部分操作" class="headerlink" title="Step3: git部分操作"></a>Step3: git部分操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">添加文件到Git仓库，分两步：</div><div class="line">- 第一步，使用命令git add &lt;file&gt;，注意，可反复多次使用，添加多个文件；</div><div class="line">- 第二步，使用命令git commit，完成。</div><div class="line"></div><div class="line">修改文件，用git diff filename 来查看被修改的文件的情况</div><div class="line">然后用同样的代码，先git add file,再git commit -m &quot;comment&quot; 提交分支</div><div class="line"></div><div class="line">git log 查看版本更迭的历史记录</div><div class="line">简化输出信息：git log --pretty=oneline</div><div class="line"></div><div class="line">HEAD表示当前版本，HEAD^表示上一版本，HEAD^^表示上上一个版本，HEAD~100表示上100个版本</div><div class="line">回退使用git reset 命令</div><div class="line">git reset --hard +HEAD或者commit id</div><div class="line"></div><div class="line">可以使用git diff HEAD -- filename 来查看工作区和版本库里面最新版本的区别</div><div class="line"></div><div class="line">git checkout --file 丢弃工作区的修改</div><div class="line">git reset HEAD file 撤销暂存区的修改</div><div class="line"></div><div class="line">在工作区中删除了文件，</div><div class="line">1.同步到版本库中，用git rm file，然后再git commit -m &quot;&quot;来同步到版本库；</div><div class="line">2.需要恢复的话，则用git checkout -- file 来将版本库中的同步到工作区；</div></pre></td></tr></table></figure>
+<h3 id="Step4-远程仓库"><a href="#Step4-远程仓库" class="headerlink" title="Step4: 远程仓库"></a>Step4: 远程仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">远程仓库：</div><div class="line">查看用户主目录下是否有.ssh目录，有的话，直接复制id_ras.pub的内容去github中添加ssh key</div><div class="line">如果没有，则用 ssh-keygen -t rsa -C &quot;youremail@example.com&quot; 创建ssh key</div><div class="line">git添加远程管仓库：</div><div class="line">1.现在github上添加一个仓库，然后复制ssh地址；</div><div class="line">2.把本地库和github上的库关联：git remote add origin(远程仓库的名字) (ssh地址)</div><div class="line"></div><div class="line">下一步是把本地库所有的内容推送到远程库上：</div><div class="line">git push -u origin master</div><div class="line">把本地库的内容推送到远程，用git push命令，实际上是把当前分支mast推送到远程；</div><div class="line">由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。</div><div class="line">之后只需要使用git push origin master即可将本地master分支的最新修改版本推送到github</div></pre></td></tr></table></figure>
+<h2 id="Git创建并切换新的分支"><a href="#Git创建并切换新的分支" class="headerlink" title="Git创建并切换新的分支"></a>Git创建并切换新的分支</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">创建并切换新的分支：git checkout -b dev</div><div class="line">上述相当于：</div><div class="line">git branch dev（创建分支）     +     git checkout dev（切换分支）</div><div class="line">查看当前分支：git branch</div><div class="line">切换回原分支：git checkout master</div><div class="line">合并指定分支到当前分支：git merge dev</div><div class="line">删除分支：git branch -d dev</div></pre></td></tr></table></figure>
+<h2 id="Git解决冲突"><a href="#Git解决冲突" class="headerlink" title="Git解决冲突"></a>Git解决冲突</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">解决冲突：两条及以上分支同时做了修改</div><div class="line">首先修改文件的内容用于解决冲突，然后再重新提交原数据文件</div><div class="line">用git log --graph 可查看分支合并图</div></pre></td></tr></table></figure>
+<ul>
+<li>后续继续……未完待尽……</li>
+</ul>
 
       
     </div>
@@ -553,8 +562,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.png"
@@ -616,6 +634,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git基础操作：本地-远程操作"><span class="nav-number">1.</span> <span class="nav-text">Git基础操作：本地+远程操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step1-初始化用户名和邮箱"><span class="nav-number">1.1.</span> <span class="nav-text">Step1: 初始化用户名和邮箱</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step2-初始化git仓库"><span class="nav-number">1.2.</span> <span class="nav-text">Step2: 初始化git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step3-git部分操作"><span class="nav-number">1.3.</span> <span class="nav-text">Step3: git部分操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step4-远程仓库"><span class="nav-number">1.4.</span> <span class="nav-text">Step4: 远程仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git创建并切换新的分支"><span class="nav-number">2.</span> <span class="nav-text">Git创建并切换新的分支</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git解决冲突"><span class="nav-number">3.</span> <span class="nav-text">Git解决冲突</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
