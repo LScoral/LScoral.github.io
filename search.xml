@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Jupyter_Notebook-Usage]]></title>
+    <url>%2F2017%2F06%2F13%2FJupyter-Notebook-Usage%2F</url>
+    <content type="text"><![CDATA[Jupyter Notebook快捷键操作 执行当前cell，并自动跳到下一个cell：Shift Enter 执行当前cell，执行后不自动调转到下一个cell：Ctrl-Enter 是当前的cell进入编辑模式：Enter 退出当前cell的编辑模式：Esc 删除当前的cell：双D 为当前的cell加入line number：单L 将当前的cell转化为具有一级标题的maskdown：单1 将当前的cell转化为具有二级标题的maskdown：单2 将当前的cell转化为具有三级标题的maskdown：单3 为一行或者多行添加/取消注释：Crtl / 撤销对某个cell的删除：z 快速跳转到首个cell：Crtl Home 快速跳转到最后一个cell：Crtl End 在代码中查找、替换，忽略输出：Esc F 在cell和输出结果间切换：Esc O 选择多个cell: Shift + J 或 Shift + Down 选择下一个cell。Shift + K 或 Shift + Up 选择上一个cell。 Shift + M 合并cell. Jupyter Notebook添加markdown目录 1conda install -c conda-forge jupyter_contrib_nbextensions 进入jupyter notebook勾选table of contents 导入代码/运行代码(current path)12%load file.py%run file.py 其他用法12!python --version 查看python版本!python file.py 运行python文件 变量显示把变量名称或没有定义输出结果的语句放在cell的最后一行，无需print语句，Jupyter也会显示变量值。 如果你想在各种情形下（Notebook和Console）Jupyter都同样处理，用下面的几行简单的命令创建文件~/.ipython/profile_default/ipython_config.py即可实现： 123c = get_config()# Run all nodes interactivelyc.InteractiveShell.ast_node_interactivity = &quot;all&quot; 链接到文档在Help 菜单下，你可以找到常见库的在线文档链接，包括Numpy，Pandas，Scipy和Matplotlib等。另外，在库、方法或变量的前面打上?，即可打开相关语法的帮助文档。 1?str.replace() 在notebook里作图在notebook里作图，有多个选择： matplotlib （事实标准），可通过%matplotlib inline 激活，详细链接- %matplotlib notebook 提供交互性操作，但可能会有点慢，因为响应是在服务器端完成的。 mpld3 提供matplotlib代码的替代性呈现（通过d3），虽然不完整，但很好。 bokeh 生成可交互图像的更好选择。 plot.ly 可以生成非常好的图，可惜是付费服务。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>jupyter_notebook</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Git-learning]]></title>
     <url>%2F2017%2F06%2F12%2FGit-learning%2F</url>
     <content type="text"><![CDATA[Git基础操作：本地+远程操作Step1: 初始化用户名和邮箱123安装完成之后，初始化用户名和用户邮箱：$ git config --global user.name &quot;Your Name&quot;$ git config --global user.email &quot;email@example.com&quot; Step2: 初始化git仓库12初始化一个Git仓库，使用git init命令。git init Step3: git部分操作12345678910111213141516171819202122添加文件到Git仓库，分两步：- 第一步，使用命令git add &lt;file&gt;，注意，可反复多次使用，添加多个文件；- 第二步，使用命令git commit，完成。修改文件，用git diff filename 来查看被修改的文件的情况然后用同样的代码，先git add file,再git commit -m &quot;comment&quot; 提交分支git log 查看版本更迭的历史记录简化输出信息：git log --pretty=onelineHEAD表示当前版本，HEAD^表示上一版本，HEAD^^表示上上一个版本，HEAD~100表示上100个版本回退使用git reset 命令git reset --hard +HEAD或者commit id可以使用git diff HEAD -- filename 来查看工作区和版本库里面最新版本的区别git checkout --file 丢弃工作区的修改git reset HEAD file 撤销暂存区的修改在工作区中删除了文件，1.同步到版本库中，用git rm file，然后再git commit -m &quot;&quot;来同步到版本库；2.需要恢复的话，则用git checkout -- file 来将版本库中的同步到工作区； Step4: 远程仓库123456789101112远程仓库：查看用户主目录下是否有.ssh目录，有的话，直接复制id_ras.pub的内容去github中添加ssh key如果没有，则用 ssh-keygen -t rsa -C &quot;youremail@example.com&quot; 创建ssh keygit添加远程管仓库：1.现在github上添加一个仓库，然后复制ssh地址；2.把本地库和github上的库关联：git remote add origin(远程仓库的名字) (ssh地址)下一步是把本地库所有的内容推送到远程库上：git push -u origin master把本地库的内容推送到远程，用git push命令，实际上是把当前分支mast推送到远程；由于远程库是空的，我们第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令。之后只需要使用git push origin master即可将本地master分支的最新修改版本推送到github Git创建并切换新的分支1234567创建并切换新的分支：git checkout -b dev上述相当于：git branch dev（创建分支） + git checkout dev（切换分支）查看当前分支：git branch切换回原分支：git checkout master合并指定分支到当前分支：git merge dev删除分支：git branch -d dev Git解决冲突123解决冲突：两条及以上分支同时做了修改首先修改文件的内容用于解决冲突，然后再重新提交原数据文件用git log --graph 可查看分支合并图 后续继续……未完待尽……]]></content>
