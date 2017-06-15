@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Python-xlrd/xlwt/openpyxl]]></title>
+    <url>%2F2017%2F06%2F15%2FPython-xlrd-xlwt-openpyxl%2F</url>
+    <content type="text"><![CDATA[xlrd-usage打开工作簿 1data = xlrd.open_workbook('path') 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets 选择某个工作表（通过索引或表名称） 12345678#获取第一个工作表table=data.sheets()[0]#通过索引获取第一个工作表table=data.sheet_by_index(0)#通过表名称选择工作表table=data.sheet_by_name(u'哈哈') 获取表格的行数和列数,名字 123nrows = table.nrowsnclos = table.ncolsname = table.name 获取正行和整列的值 12table.row_values(number)table.col_values(number) 切片处理 1table.row_slice(rowx=0,start_colx=0,end_colx=2) 循环读取表格的所有行 123for item in range(table.nrows): print(table.row_values(item)) # 纯值 print(table.row(item)) # 包括每个值的类型 获取单元格的值 123cell_val = table.row(0)[1].valuecell_val = table.cell(0,1).valuecell_val = table.col(0)[1].value xlwt-usage新建一个Excel文件 1data = xlwt.Workbook() 新建一个工作表 1table = data.add_sheet('name') 写入数据到单元格 1table.write(0,0,u'呵呵') 注意：如果对同一个单元格重复操作，会引发overwrite Exception，想要取消该功能，需要在添加工作表时指定为可覆盖，像下面这样 1table=data.add_sheet('name',cell_overwrite_ok=True) 保存文件（不能保存为xlsx，只能用xls） 1data.save('path') xlwt支持一定的样式，操作如下 123456789101112# 初始化样式style=xlwt.XFStyle()# 为样式创建字体font=xlwt.Font()# 指定字体名字font.name='Times New Roman'# 字体加粗font.bold=True# 将该font设定为style的字体style.font=font# 写入到文件时使用该样式sheet.write(0,1,'just for test',style) openpyxl读取Excel 1from openpyxl.reader.excel import load_workbook 显示工作表的索引范围 1wb.get_named_ranges() 显示所有工作表的名字 1wb.get_sheet_names() 取得第一张表 12sheetnames = wb.get_sheet_names() ws = wb.get_sheet_by_name(sheetnames[0]) 获取表名 1ws.title 获取表的行数 1ws.get_highest_row() 获取表的列数 1ws.get_highest_column() 单元格的读取，此处和xlrd的读取方式很相近，都是通过行和列的索引来读取 12#读取B1单元格中的内容ws.cell(0,1).value 当然也支持通过Excel坐标来读取数据，代码如下 12#读取B1单元格中的内容ws.cell("B1").value 写文件，只有一种操作方式，就是通过坐标。例如要向单元格C1写数据，就要用类似ws.cell(“C1”).value=something这样的方式。 一般推荐的方式是用openpyxl中的Writer类来实现。代码类似下面这样： 12345678910111213141516171819202122232425262728from openpyxl.workbook import Workbook #ExcelWriter,里面封装好了对Excel的写操作from openpyxl.writer.excel import ExcelWriter #get_column_letter函数将数字转换为相应的字母，如1--&gt;A,2--&gt;B from openpyxl.cell import get_column_letter #新建一个workbook wb = Workbook() #新建一个excelWriter ew = ExcelWriter(workbook = wb) #设置文件输出路径与名称 dest_filename = r'empty_book.xlsx' #第一个sheet是ws ws = wb.worksheets[0] #设置ws的名称 ws.title = "range names"#向某个单元格中写入数据ws.cell("C1").value=u'哈哈'#最后保存文件ew.save(filename=dest_filename) 向某个单元格内写文件时要先知道它对应的行数和列数，这里注意行数是从1开始计数的，而列则是从字母A开始，因此第一行第一列是A1，这实际上是采用坐标方式操作Excel。例如，想向表格的第三行第一列插入一个数值1.2，用xlwt写就是table.write(2,0,1.2),因为xlwt中行列索引都从0开始；而如果用openpyxl写就是ws.cell(“A3”).value=1.2。一般对于一个较大的列数，需要通过get_column_letter函数得到相应的字符，然后再调用cell函数写入。 下面是我之前写的一个代码的一部分，可以用来演示将多位数组保存到Excel文件中。为了体现多维数组，这里用到了numpy，另外这里为了简化过程，没有用ExcelWriter。代码如下： 12345678910111213141516171819#coding:utf-8from openpyxl import Workbookfrom openpyxl.cell import get_column_letterimport numpy as np#生成一个对角阵a=np.diag([1,2,3,4,5])#新建一个工作簿wb=Workbook()#使用当前激活的工作表（默认就是Excel中的第一张表）ws=wb.active#下面是对a的遍历，注意cell中行和列从1开始，a中索引从0开始。for row in xrange(1,a.shape[0]+1): for col in xrange(1,a.shape[1]+1): col_letter=get_column_letter(col) ws.cell('%s%s'%(col_letter,row)).value=a[row-1,col-1]wb.save('test.xlsx') 总结： 读取Excel时，选择openpyxl和xlrd差别不大，都能满足要求写入少量数据且存为xls格式文件时，用xlwt更方便写入大量数据（超过xls格式限制）或者必须存为xlsx格式文件时，就要用openpyxl了。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>xlrd</tag>
+        <tag>xlwt</tag>
+        <tag>openpyxl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Python-string]]></title>
+    <url>%2F2017%2F06%2F15%2FPython-string%2F</url>
+    <content type="text"><![CDATA[string-usage]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>string</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Jupyter_Notebook-Usage]]></title>
     <url>%2F2017%2F06%2F13%2FJupyter-Notebook-Usage%2F</url>
     <content type="text"><![CDATA[Jupyter Notebook快捷键操作 执行当前cell，并自动跳到下一个cell：Shift Enter 执行当前cell，执行后不自动调转到下一个cell：Ctrl-Enter 是当前的cell进入编辑模式：Enter 退出当前cell的编辑模式：Esc 删除当前的cell：双D 为当前的cell加入line number：单L 将当前的cell转化为具有一级标题的maskdown：单1 将当前的cell转化为具有二级标题的maskdown：单2 将当前的cell转化为具有三级标题的maskdown：单3 为一行或者多行添加/取消注释：Crtl / 撤销对某个cell的删除：z 快速跳转到首个cell：Crtl Home 快速跳转到最后一个cell：Crtl End 在代码中查找、替换，忽略输出：Esc F 在cell和输出结果间切换：Esc O 选择多个cell: Shift + J 或 Shift + Down 选择下一个cell。Shift + K 或 Shift + Up 选择上一个cell。 Shift + M 合并cell. Jupyter Notebook添加markdown目录 1conda install -c conda-forge jupyter_contrib_nbextensions 进入jupyter notebook勾选table of contents 导入代码/运行代码(current path)12%load file.py%run file.py 其他用法12!python --version 查看python版本!python file.py 运行python文件 变量显示把变量名称或没有定义输出结果的语句放在cell的最后一行，无需print语句，Jupyter也会显示变量值。 如果你想在各种情形下（Notebook和Console）Jupyter都同样处理，用下面的几行简单的命令创建文件~/.ipython/profile_default/ipython_config.py即可实现： 123c = get_config()# Run all nodes interactivelyc.InteractiveShell.ast_node_interactivity = &quot;all&quot; 链接到文档在Help 菜单下，你可以找到常见库的在线文档链接，包括Numpy，Pandas，Scipy和Matplotlib等。另外，在库、方法或变量的前面打上?，即可打开相关语法的帮助文档。 1?str.replace() 在notebook里作图在notebook里作图，有多个选择： matplotlib （事实标准），可通过%matplotlib inline 激活，详细链接- %matplotlib notebook 提供交互性操作，但可能会有点慢，因为响应是在服务器端完成的。 mpld3 提供matplotlib代码的替代性呈现（通过d3），虽然不完整，但很好。 bokeh 生成可交互图像的更好选择。 plot.ly 可以生成非常好的图，可惜是付费服务。]]></content>
