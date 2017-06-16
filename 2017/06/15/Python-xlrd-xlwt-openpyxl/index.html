@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="xlrd-usage打开工作簿 1data = xlrd.open_workbook(&apos;path&apos;) 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets 选择某个工作表（通过索引或表名称） 12345678#获取第一个工作表table=data.sheets()[0]#通过索引获取第一个工作表table=data.sh">
+<meta name="description" content="xlrd-usage打开工作簿 1data = xlrd.open_workbook(&apos;path&apos;) 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets">
 <meta name="keywords" content="python,xlrd,xlwt,openpyxl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python-xlrd&#x2F;xlwt&#x2F;openpyxl">
 <meta property="og:url" content="http://sssmarter.cn/2017/06/15/Python-xlrd-xlwt-openpyxl/index.html">
 <meta property="og:site_name" content="Leave Me Alone">
-<meta property="og:description" content="xlrd-usage打开工作簿 1data = xlrd.open_workbook(&apos;path&apos;) 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets 选择某个工作表（通过索引或表名称） 12345678#获取第一个工作表table=data.sheets()[0]#通过索引获取第一个工作表table=data.sh">
-<meta property="og:updated_time" content="2017-06-15T09:19:22.965Z">
+<meta property="og:description" content="xlrd-usage打开工作簿 1data = xlrd.open_workbook(&apos;path&apos;) 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets">
+<meta property="og:updated_time" content="2017-06-16T01:23:05.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python-xlrd&#x2F;xlwt&#x2F;openpyxl">
-<meta name="twitter:description" content="xlrd-usage打开工作簿 1data = xlrd.open_workbook(&apos;path&apos;) 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets 选择某个工作表（通过索引或表名称） 12345678#获取第一个工作表table=data.sheets()[0]#通过索引获取第一个工作表table=data.sh">
+<meta name="twitter:description" content="xlrd-usage打开工作簿 1data = xlrd.open_workbook(&apos;path&apos;) 查看工作簿中的所有sheet的名称/获取工作簿多少个sheets 12data.sheet_names()data.nsheets">
 
 
 
@@ -434,6 +434,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">data = xlrd.open_workbook(<span class="string">'path'</span>)</div></pre></td></tr></table></figure>
 <p>查看工作簿中的所有sheet的名称/获取工作簿多少个sheets</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">data.sheet_names()</div><div class="line">data.nsheets</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <p>选择某个工作表（通过索引或表名称）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#获取第一个工作表</span></div><div class="line">table=data.sheets()[<span class="number">0</span>]</div><div class="line"></div><div class="line"><span class="comment">#通过索引获取第一个工作表</span></div><div class="line">table=data.sheet_by_index(<span class="number">0</span>)</div><div class="line"></div><div class="line"><span class="comment">#通过表名称选择工作表</span></div><div class="line">table=data.sheet_by_name(<span class="string">u'哈哈'</span>)</div></pre></td></tr></table></figure>
 <p>获取表格的行数和列数,名字</p>
