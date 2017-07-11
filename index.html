@@ -323,6 +323,361 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://sssmarter.cn/2017/07/11/Atom-package-Hydrogen/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L.Scoral">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leave Me Alone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/11/Atom-package-Hydrogen/" itemprop="url">Atom-package-Hydrogen</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T14:49:45+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Atom/" itemprop="url" rel="index">
+                    <span itemprop="name">Atom</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/11/Atom-package-Hydrogen/" class="leancloud_visitors" data-flag-title="Atom-package-Hydrogen">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>Hydrogen provides a selection of commands for running code. Press ⌘-⇧-P to open the command palette and type “hydrogen” and they will come up.</p>
+<h2 id="“Hydrogen-Run”"><a href="#“Hydrogen-Run”" class="headerlink" title="“Hydrogen: Run”"></a>“Hydrogen: Run”</h2><p>There are two ways to tell Hydrogen which code in your file to run.</p>
+<ol>
+<li><strong>Selected code:</strong> If you have code selected when you hit Run, Hydrogen will run exactly that code.</li>
+<li><p><strong>Current block:</strong> With no code selected, Hydrogen will try to find the complete block that’s on or before the current line.</p>
+<ul>
+<li><p>If the line you’re on is already a complete expression (like <code>s = &quot;abracadabra&quot;</code>), Hydrogen will run just that line.</p>
+</li>
+<li><p>If the line you’re on is the start of a block like a <code>for</code> loop, Hydrogen will run the whole block.</p>
+</li>
+<li><p>If the line you’re on is blank, Hydrogen will run the first block above that line.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>It’s easiest to see these interactions visually:</p>
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/20360915/a16efcba-ac03-11e6-9d5c-3489b3c3c85f.gif" alt="execute"></p>
+<p><strong>“Hydrogen: Run And Move Down”</strong> will run the the code as described above and move the cursor to the next executable line.</p>
+<p>If your code starts getting cluttered up with results, run <strong>“Hydrogen: Clear Results”</strong> to remove them all at once.</p>
+<h2 id="“Hydrogen-Run-Cell”"><a href="#“Hydrogen-Run-Cell”" class="headerlink" title="“Hydrogen: Run Cell”"></a>“Hydrogen: Run Cell”</h2><p>A “code cell” is a block of lines to be executed at once. You can define them using inline comments. Hydrogen supports a<br>multitude of ways to define cells. Pick the one you like best.<br>The following is an example for <code>python</code> but it will work in any language, just replace <code>#</code> with the comment symbol for your desired language:</p>
+<p><img width="280" src="https://cloud.githubusercontent.com/assets/13285808/17094174/e8ec17b8-524d-11e6-9140-60b43e073619.png"></p>
+<p>When you place the cursor inside a cell and hit <strong>“Run Cell”</strong>, Hydrogen will execute this cell. The command <strong>“Hydrogen: Run Cell And Move Down”</strong> will move the cursor to the next cell after execution.</p>
+<h2 id="“Hydrogen-Run-All”-and-“Hydrogen-Run-All-Above”"><a href="#“Hydrogen-Run-All”-and-“Hydrogen-Run-All-Above”" class="headerlink" title="“Hydrogen: Run All” and “Hydrogen: Run All Above”"></a>“Hydrogen: Run All” and “Hydrogen: Run All Above”</h2><p>These commands will run all code inside the editor or all code above the cursor.</p>
+<h2 id="“Hydrogen-Restart-Kernel-And-Re-Evaluate-Bubbles”"><a href="#“Hydrogen-Restart-Kernel-And-Re-Evaluate-Bubbles”" class="headerlink" title="“Hydrogen: Restart Kernel And Re Evaluate Bubbles”"></a>“Hydrogen: Restart Kernel And Re Evaluate Bubbles”</h2><p>Restart running kernel and re-evaluate all bubbles on editor.<br>This command works in following way.</p>
+<ol>
+<li>Restart kernel to cleanup evaluation environment.</li>
+<li>Run all code and update all existing bubbles.</li>
+</ol>
+<h2 id="“Hydrogen-Toggle-Bubble”"><a href="#“Hydrogen-Toggle-Bubble”" class="headerlink" title="“Hydrogen: Toggle Bubble”"></a>“Hydrogen: Toggle Bubble”</h2><p>Toggle(add or remove) bobble at current cursor line.<br>You can <strong>preset</strong> bubble before executing code.<br>If executed with selection, toggle bubble on each selected line.</p>
+<p>Typical workflow with this command is</p>
+<ol>
+<li>Add bubble at line you want manually by <code>hydrogen:toggle-bubble</code></li>
+<li>Execute code cleanly by <code>restart-kernel-and-re-evaluate-bubbles</code></li>
+<li>Modify code, then repeat 1-3 until you fully understand/investigated code.</li>
+</ol>
+<h2 id="Watch-Expressions"><a href="#Watch-Expressions" class="headerlink" title="Watch Expressions"></a>Watch Expressions</h2><p>After you’ve run some code with Hydrogen, you can use the <strong>“Hydrogen: Toggle Watches”</strong> command from the Command Palette to open the watch expression sidebar. Whatever code you write in watch expressions will be re-run after each time you send that kernel any other code.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/20361086/4434ab3e-ac04-11e6-8298-1fb925de4e78.gif" alt="watch"></p>
+<p><strong>IMPORTANT:</strong> Be careful what you put in your watch expressions. If you write code that mutates state in a watch expression, that code will get run after every execute command and likely result in some <em>extremely confusing</em> bugs.</p>
+<p>You can re-run the watch expressions by using the normal run shortcut (⌘-↩ by default) inside a watch expression’s edit field.</p>
+<p>If you have multiple kernels running, you can switch between their watch expressions with the <strong>“Hydrogen: Select Watch Kernel”</strong> command (or just click on the “Kernel: <language>“ text).</language></p>
+<h2 id="Completion"><a href="#Completion" class="headerlink" title="Completion"></a>Completion</h2><p>Receive completions from the running kernel.</p>
+<p><img width="416" src="https://cloud.githubusercontent.com/assets/13285808/14108987/35d17fae-f5c0-11e5-9c0b-ee899387f4d9.png"></p>
+<h2 id="Code-Introspection"><a href="#Code-Introspection" class="headerlink" title="Code Introspection"></a>Code Introspection</h2><p>You can use the <strong>“Hydrogen: Toggle Inspector”</strong> command from the Command Palette to get metadata from the kernel about the object under the cursor.</p>
+<p><img width="770" src="https://cloud.githubusercontent.com/assets/13285808/14108719/d72762bc-f5be-11e5-8188-32725e3d2726.png"></p>
+<h2 id="Managing-kernels"><a href="#Managing-kernels" class="headerlink" title="Managing kernels"></a>Managing kernels</h2><p>Sometimes things go wrong. Maybe you’ve written an infinite loop, maybe the kernel has crashed, or maybe you just want to clear the kernel’s namespace. Use the command palette to <strong>interrupt</strong> (think <code>Ctrl-C</code> in a REPL) or <strong>restart</strong> the kernel.</p>
+<p>You can also access these commands by clicking on the kernel status in the status bar or via the command palette. It looks like this:</p>
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/16894732/e4e5b4de-4b5f-11e6-8b8e-facf17a7c6c4.png" width="300"></p>
+<p>Additionally, if you have two or more kernels for a particular language (grammar), you can select which kernel to use with the “Switch to <kernel>“ option in the Kernel Commands menu.</kernel></p>
+<h2 id="Multiple-kernels-inside-one-rich-document"><a href="#Multiple-kernels-inside-one-rich-document" class="headerlink" title="Multiple kernels inside one rich document"></a>Multiple kernels inside one rich document</h2><p>If you are working in a markup file that supports highlighted code blocks, we can handle multiple kernels per file. This way you can write your documentation, readme or paper together with your code while retaining the interactivity of Hydrogen.</p>
+<p><img src="https://cloud.githubusercontent.com/assets/13285808/24365090/0af6a91c-1315-11e7-92c6-849031bf9f6a.gif" height="350"></p>
+<p>We support <a href="https://github.com/burodepeper/language-markdown" target="_blank" rel="external">markdown</a>, <a href="https://github.com/atom/language-gfm" target="_blank" rel="external">gfm</a>, <a href="https://github.com/asciidoctor/atom-language-asciidoc" target="_blank" rel="external">asciidoc</a>, <a href="https://github.com/Lukasa/language-restructuredtext" target="_blank" rel="external">reStructuredText</a> and <a href="https://github.com/christophergandrud/language-knitr/" target="_blank" rel="external">knitr</a>.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://sssmarter.cn/2017/07/11/Atom-package-multi_cursor/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="L.Scoral">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Leave Me Alone">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/11/Atom-package-multi_cursor/" itemprop="url">Atom_package:multi_cursor</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-11T14:36:56+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Atom/" itemprop="url" rel="index">
+                    <span itemprop="name">Atom</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/07/11/Atom-package-multi_cursor/" class="leancloud_visitors" data-flag-title="Atom_package:multi_cursor">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="multi-cursor"><a href="#multi-cursor" class="headerlink" title="multi_cursor"></a><a href="https://atom.io/packages/multi-cursor" target="_blank" rel="external">multi_cursor</a></h2><h3 id="OSX-Keymaps"><a href="#OSX-Keymaps" class="headerlink" title="OSX Keymaps:"></a>OSX Keymaps:</h3><ul>
+<li>Creating cursors<br>alt + up = Create cursor above<br>alt + down = Create cursor under    </li>
+<li>Moving the last cursor that has been created<br>ctrl + alt + up = Move the last-created cursor up<br>ctrl + alt + down = Move the last-created cursor down<br>ctrl + alt + left = Move the last-created cursor left<br>ctrl + alt + right = Move the last-created cursor right   </li>
+</ul>
+<h3 id="Linux-Keymaps"><a href="#Linux-Keymaps" class="headerlink" title="Linux Keymaps:"></a>Linux Keymaps:</h3><ul>
+<li>Creating cursors<br>ctrl + shift + up = Create cursor above<br>ctrl + shift + down = Create cursor under   </li>
+<li>Moving the last cursor that has been created<br>ctrl + shift + alt + up = Move the last-created cursor up<br>ctrl + shift + alt + down = Move the last-created cursor down<br>ctrl + shift + alt + left = Move the last-created cursor left<br>ctrl + shift + alt + right = Move the last-created cursor right   </li>
+</ul>
+<h3 id="Windows-Keymaps"><a href="#Windows-Keymaps" class="headerlink" title="Windows Keymaps:"></a>Windows Keymaps:</h3><ul>
+<li>Creating cursors<br>alt + up = Create cursor above<br>alt + down = Create cursor under   </li>
+<li>Moving the last cursor that has been created<br>ctrl + shift + alt + up = Move the last-created cursor up<br>ctrl + shift + alt + down = Move the last-created cursor down<br>ctrl + shift + alt + left = Move the last-created cursor left<br>ctrl + shift + alt + right = Move the last-created cursor right   </li>
+</ul>
+<blockquote>
+<p>Those may be overriden for your favorite keystroke in your keymap.cson with:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&apos;atom-workspace atom-text-editor:not([mini])&apos;:</div><div class="line">  # you may have to unset the keybinding if it&apos;s already in use.</div><div class="line"></div><div class="line">  # Expand current cursor</div><div class="line">  &apos;ctrl-down&apos;: &apos;multi-cursor:expandDown&apos;</div><div class="line">  &apos;ctrl-up&apos;:   &apos;multi-cursor:expandUp&apos;</div><div class="line"></div><div class="line">  # Move the last cursor.</div><div class="line">  &apos;ctrl-alt-down&apos;:  &apos;multi-cursor:move-last-cursor-down&apos;</div><div class="line">  &apos;ctrl-alt-right&apos;: &apos;multi-cursor:move-last-cursor-right&apos;</div><div class="line">  &apos;ctrl-alt-left&apos;:  &apos;multi-cursor:move-last-cursor-left&apos;</div><div class="line">  &apos;ctrl-alt-up&apos;:    &apos;multi-cursor:move-last-cursor-up&apos;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://sssmarter.cn/2017/06/15/Python-xlrd-xlwt-openpyxl/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1573,7 +1928,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1584,7 +1939,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
